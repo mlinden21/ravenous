@@ -7,6 +7,7 @@ const sortByOptions = {
   "Most Reviewed": "review_count",
 };
 
+
 const SearchBar = () => {
   const renderSortByOptions = () => {
     return Object.keys(sortByOptions).map((sortByOption) => {
