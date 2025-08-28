@@ -1,12 +1,21 @@
 import React from "react";
 import styles from "./BusinessList.module.css";
-import { businesses } from "../../App.jsx";
+// import { businesses } from "../../App.jsx";
 import Business from "../Business/Business";
 
-const BusinessList = () => {
+const BusinessList = (props) => {
   return (
     <div className={styles.BusinessList}>
-    {businesses.map(business => <Business business={business} />)}
+      {props.businesses && props.businesses.length > 0 ? (
+        props.businesses.map((business) => (
+          <Business
+            key={business.id}
+            {...business}
+          />
+        ))
+      ) : (
+        <p style={{color: '#fff', textAlign: 'center'}}>No businesses found.</p>
+      )}
     </div>
   );
 };
